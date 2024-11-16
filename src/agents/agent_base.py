@@ -9,6 +9,9 @@ from langchain_core.runnables.history import RunnableWithMessageHistory  # 导�
 from .session_history import get_session_history  # 导入会话历史相关方法
 from utils.logger import LOG  # 导入日志工具
 
+import os
+# os.environ['OLLAMA_BASE_URL'] = "http://172.16.0.224:11434"
+
 class AgentBase(ABC):
     """
     抽象基类，提供代理的共有功能。
@@ -59,7 +62,7 @@ class AgentBase(ABC):
             model="llama3.1:8b-instruct-q8_0",  # 使用的模型名称
             max_tokens=8192,  # 最大生成的 token 数
             temperature=0.8,  # 随机性配置
-            base_url="http://172.16.0.224:11434"
+            base_url=os.getenv("OLLAMA_BASE_URL")
         )
 
         # 将聊天机器人与消息历史记录关联
@@ -86,3 +89,6 @@ class AgentBase(ABC):
 
         LOG.debug(f"[ChatBot][{self.name}] {response.content}")  # 记录调试日志
         return response.content  # 返回生成的回复内容
+
+if __name__ == '__main__':
+    pass
