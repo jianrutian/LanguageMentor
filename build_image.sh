@@ -7,7 +7,7 @@ BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
 BRANCH_NAME=${BRANCH_NAME//\//-}
 
 # 使用 Git 分支名称作为 Docker 镜像的标签
-IMAGE_TAG="LanguageMentor:${BRANCH_NAME}"
+IMAGE_TAG="language_mentor:${BRANCH_NAME}"
 
 # 构建 Docker 镜像
 docker build -t $IMAGE_TAG .
