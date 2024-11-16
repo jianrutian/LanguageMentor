@@ -8,6 +8,8 @@ from utils.logger import LOG
 agents = {
     "job_interview": ScenarioAgent("job_interview"),
     "hotel_checkin": ScenarioAgent("hotel_checkin"),
+    "renting": ScenarioAgent("renting"),
+    "visit_doctor": ScenarioAgent("visit_doctor"),
     # 可以根据需要添加更多场景代理
 }
 
@@ -45,7 +47,8 @@ def create_scenario_tab():
                 ("求职面试", "job_interview"),  # 求职面试选项
                 ("酒店入住", "hotel_checkin"),  # 酒店入住选项
                 # ("薪资谈判", "salary_negotiation"),  # 薪资谈判选项（注释掉）
-                # ("租房", "renting")  # 租房选项（注释掉）
+                ("租房", "renting"),  # 租房选项
+                ("看医生", "visit_doctor")  # 租房选项
             ], 
             label="场景"  # 单选框标签
         )

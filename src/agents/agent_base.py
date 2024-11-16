@@ -59,6 +59,7 @@ class AgentBase(ABC):
             model="llama3.1:8b-instruct-q8_0",  # 使用的模型名称
             max_tokens=8192,  # 最大生成的 token 数
             temperature=0.8,  # 随机性配置
+            base_url="http://172.16.0.224:11434"
         )
 
         # 将聊天机器人与消息历史记录关联
